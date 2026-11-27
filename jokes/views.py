@@ -7,13 +7,14 @@ from django.views.generic import (
     UpdateView,
 )
 
+from .forms import JokeForm
 from .models import Joke
 
 
 # Create your views here.
 class JokeCreateView(CreateView):
     model = Joke
-    fields = ['question', 'answer']  # noqa: RUF012
+    form_class = JokeForm
 
 
 class JokeDeleteView(DeleteView):
@@ -31,4 +32,4 @@ class JokeListView(ListView):
 
 class JokeUpdateView(UpdateView):
     model = Joke
-    fields = ['question', 'answer']  # noqa: RUF012
+    form_class = JokeForm
